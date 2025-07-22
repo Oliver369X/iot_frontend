@@ -21,6 +21,8 @@ import SettingsPage from './pages/SettingsPage';
 import CreateBuildingPage from './pages/CreateBuildingPage';
 import LiveMonitoringPage from './pages/LiveMonitoringPage';
 
+import PagePrincipal from './components/loadingPage/components/page/PagePrincipal'
+
 function App() {
   const { isLoggedIn } = useAuthStore();
   const { isDarkMode } = useThemeStore();
@@ -31,14 +33,20 @@ function App() {
       <ErrorBoundary>
         <Router>
           <Routes>
+
+
             <Route 
               path="/login" 
               element={isLoggedIn ? <Navigate to="/dashboard" replace /> : <LoginPage />} 
             />
-            <Route 
+
+
+{/*             <Route 
               path="/" 
               element={<Navigate to="/dashboard" replace />} 
-            />
+            /> */}
+            <Route path='/' element={<PagePrincipal/>}/>
+
             <Route 
               path="/dashboard" 
               element={
@@ -49,6 +57,8 @@ function App() {
                 </ProtectedRoute>
               } 
             />
+
+
             <Route 
               path="/buildings" 
               element={
