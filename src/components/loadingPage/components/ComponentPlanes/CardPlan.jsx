@@ -16,7 +16,7 @@ const CardPlan = ({ plan }) => {
                 planId={plan.id}
             />
 
-            <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col">
+            <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col text-black">
                 <h3 className="text-2xl font-bold text-center mb-4">{plan.nombre_plan}</h3>
                 <p className="text-gray-600 mb-4 h-32">{plan.descripcion}</p>
                 <ul className="mb-6">

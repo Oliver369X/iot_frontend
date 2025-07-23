@@ -28,7 +28,7 @@ const ComponentPlanes = () => {
     return (
         <section className="py-12 bg-gray-50">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-8">Nuestros Planes</h2>
+                <h2 className="text-4xl font-bold text-center text-black mb-8">Nuestros Planes</h2>
                 <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
                     Ofrecemos una variedad de planes para adaptarnos a las necesidades de su negocio, desde pequeñas empresas hasta grandes corporaciones.
                 </p>

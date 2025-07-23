@@ -11,7 +11,7 @@ const CardSolution = ({
   bgColor = 'bg-white'
 }) => {
   return (
-    <div className={`p-6 rounded-3xl shadow-md ${bgColor}`}  >
+    <div className={`p-6 rounded-3xl shadow-md ${bgColor} text-black`}  >
       <div className="text-4xl text-blue-600 mb-4 flex gap-5">
         {icono}
         <h3 className="text-2xl text-black font-bold mb-2 flex items-center">{title}</h3>

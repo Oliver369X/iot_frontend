@@ -6,7 +6,7 @@ import { IoHardwareChipSharp } from "react-icons/io5";
 
 const ComponentSolution = () => {
   return (
-    <section className="py-28">
+    <section className="py-28 bg-white">
         <div className="w-1/3 mx-auto space-y-5">
             <h4 className="uppercase text-blue-950 text-xl font-bold text-center">
                 Industrias que Trasnformamos

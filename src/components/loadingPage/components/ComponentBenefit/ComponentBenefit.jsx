@@ -7,11 +7,11 @@ import { BsFillRocketTakeoffFill } from "react-icons/bs";
 const ComponentBenefit = () => {
   return (
     <>
-        <section className="py-28">
+        <section className="py-28 bg-white">
            
             <div className="w-[30%] mx-auto">
                 <h4 className="uppercase text-center text-custom-blue text-xl font-semibold ">Beneficio Clave</h4>
-                <h3 className="text-4xl text-center font-bold mt-3">Tranforme su Negocio con IA e IoT</h3>
+                <h3 className="text-4xl text-center font-bold mt-3 text-black">Tranforme su Negocio con IA e IoT</h3>
                 <p className="text-center text-gray-700 text-xl mt-8">Descubra como nuestra integración de IA e IoT puede revolucionar 
                     su operación y generar resultados medibles.
                 </p>
