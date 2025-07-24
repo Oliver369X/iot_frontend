@@ -1,8 +1,11 @@
 import { create } from 'zustand'
 
-export const useClienteIdStore = create((set) => ({
-  clienteId: Number(localStorage.getItem("clienteId")) || null,
-  rolId: Number(localStorage.getItem("rolId")) || null,
+export const useClienteIdStore = create((set, get) => ({
+  clienteId: null,
+  rolId: null,
+  suscripcionId: null,
+
+  // SETTERS
   setClienteId: (id) => {
     if (id) localStorage.setItem("clienteId", String(id));
     else localStorage.removeItem("clienteId");
@@ -13,9 +16,21 @@ export const useClienteIdStore = create((set) => ({
     else localStorage.removeItem("rolId");
     set({ rolId: id });
   },
+  setSuscripcionId: (id) => {
+    if (id) localStorage.setItem("suscripcionId", String(id));
+    else localStorage.removeItem("suscripcionId");
+    set({ suscripcionId: id });
+  },
+
+  // GETTERS
+  getClienteId: () => get().clienteId,
+  getRolId: () => get().rolId,
+  getSuscripcionId: () => get().suscripcionId,
+
   clearClienteId: () => {
     localStorage.removeItem("clienteId");
     localStorage.removeItem("rolId");
-    set({ clienteId: null, rolId: null });
+    localStorage.removeItem("suscripcionId");
+    set({ clienteId: null, rolId: null, suscripcionId: null });
   }
 }));

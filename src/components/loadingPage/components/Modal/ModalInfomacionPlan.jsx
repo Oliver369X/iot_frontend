@@ -10,8 +10,10 @@ const ModalInformacionPlan = ({ open, onClose, planId }) => {
   const [pagoUrl, setPagoUrl] = useState(null);
   const [loadingPago, setLoadingPago] = useState(false);
 
-  const { setClienteId, clienteId, setRolId } = useClienteIdStore();
-  const navigate = useNavigate();
+  const { setClienteId, clienteId, setRolId, setSuscripcionId, getClienteId, getRolId, getSuscripcionId } = useClienteIdStore();
+
+
+
 
   useEffect(() => {
     if (open) {
@@ -46,21 +48,16 @@ const ModalInformacionPlan = ({ open, onClose, planId }) => {
         activo: true,
       };
       const res = await clienteService.crearCliente(payload);
-      const cliente = res.id;
-      setClienteId(cliente); // <- Aquí guardas en Zustand
-      setRolId(2); //Por default agrego 2 como rol de Admi Cliente
-      console.log("id de Zustand", cliente);
+      console.log("ressssss", res);
+
+ 
       Swal.fire({
         icon: "success",
         title: "¡Empresa creada!",
         text: "La empresa fue registrada exitosamente.",
-        confirmButtonText: "Ir a servicio"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate(`/servicio/${planId}`);
-        }
-      });
-      setNombreEmpresa("");
+      })
+      await handlePago(res.id,res.suscripcion_id  ) ;
+    
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -72,12 +69,13 @@ const ModalInformacionPlan = ({ open, onClose, planId }) => {
     }
   };
 
+
   // Lógica para el botón de pago
-  const handlePago = async () => {
-    if (!clienteId) return;
+  const handlePago = async (resId, suscripcionId) => {
     setLoadingPago(true);
     try {
-      const res = await clienteService.comprarSuscripcion(clienteId, planId);
+      const res = await clienteService.comprarSuscripcion(resId, suscripcionId);
+      console.log('Datos....', res);
       setPagoUrl(res.url);
       if (res.url) {
         window.location.href = res.url; // Redirige a Stripe
@@ -104,7 +102,7 @@ const ModalInformacionPlan = ({ open, onClose, planId }) => {
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
             type="text"
-            className="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
             placeholder="Nombre de la empresa"
             value={nombreEmpresa}
             onChange={e => setNombreEmpresa(e.target.value)}

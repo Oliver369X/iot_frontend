@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import Card from "./Card";
 
 export default function CardsGeneral() {
+  
   const ref = useRef(null);
   const controls = useAnimation();
   const [position, setPosition] = useState(0);

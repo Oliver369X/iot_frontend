@@ -1,5 +1,7 @@
 const Contacto = () => {
+
   return (
+
     <section className="bg-blue-950 py-20">
 
       <div className="w-[40%] mx-auto">
@@ -34,7 +36,7 @@ const Contacto = () => {
             </div>
           </form>
 
-          <hr className="text-gray-500"/>
+          <hr className="text-gray-500" />
           <p className="text-gray-500 text-xl text-center mt-3">pumaronal2016@gmail.com</p>
         </div>
 
@@ -43,6 +45,7 @@ const Contacto = () => {
 
 
     </section>
+
   )
 }
 
